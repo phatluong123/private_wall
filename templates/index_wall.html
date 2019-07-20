@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGGIN</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/index.css') }}">
+</head>
+<body>
+    <div class="topbox">
+        <h1>CODING DOJO WALL</h1>
+        <form class='' action="/success/<user_id>" method="POST">
+            <h1>Welcome, {{user}}</h1>
+        </form>
+        <form action="/logout">
+        <a href=" http://127.0.0.1:5000/logout">log out</a>
+    </form>
+    </div>
+    <div class="body">
+        <div class="leftbox">
+            <p>{{count }} message for you</p>
+
+            {% if messages %}
+            {% for message in messages %}
+                <p>Receive message from {{message['created']}} {{message['message']}}<a href="/delete/message/{{message['message_id']}}">DELETE</a></p>
+            {% endfor %}
+            {% endif %}
+
+
+
+        </div>
+        <div class="rightbox">
+            <h2>Send Message</h2>
+            {% for friend in all_friends %}
+                <p>{{ friend['first_name']}} {{friend['id']}}</p>
+                    <form action="/send_message/{{friend['id']}}" method="POST">
+                        <input type="text" name="message" >
+                        <input type="submit" value="Send" >
+
+                    </form>
+            {% endfor %}
+            <p> count send message {{session['count_send']}}</p>
+        </div>
+    </div>
+</body>
+</html>

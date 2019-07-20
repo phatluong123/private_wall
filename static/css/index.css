@@ -1,0 +1,28 @@
+.topbox{
+    border-bottom: black 1px solid;
+    display: inline-block;
+}
+.topbox form{
+    display: inline-block;
+    margin-left: 500px;
+}
+.topbox h1{
+    display: inline-block;
+    background-color: red;
+}
+.topbox a{
+    display: inline-block;
+}
+.leftbox{
+    display: inline-block;
+    width: 600px;
+    height:400px;
+    text-align: center;
+
+}
+.rightbox{
+    display: inline-block;
+    width: 600px;
+    height:400px;
+    border-left: black 1px solid;
+}
